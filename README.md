@@ -2,6 +2,14 @@
 
 A C++ program that simulates the execution of programs written in a custom instruction set architecture (ISA). This simulator allows users to load programs, execute instructions, and visualize the state of registers and memory during execution. It supports basic operations such as addition, subtraction, loading, and storing values, and provides an intuitive interface for understanding the behavior of programs in the simulated architecture.
 
+## Screenshots
+
+### Program Input
+![Program Input Interface](assets/demo-input.jpg)
+
+### Execution Output
+![Execution Output Display](assets/demo-output.jpg)
+
 ## Features
 
 - Simulates basic operations such as addition, subtraction, loading, and storing values
@@ -37,6 +45,9 @@ isa-simulator/
 │   └── isa_simulator_interactive.exe  # Interactive teaching version
 ├── examples/               # Sample programs and inputs
 │   └── basic_program.txt      # Example instruction set
+├── assets/                # Documentation assets
+│   ├── demo-input.jpg        # Screenshot of program input interface
+│   └── demo-output.jpg       # Screenshot of execution output
 ├── LICENSE                 # MIT License
 └── README.md              # This file
 ```
