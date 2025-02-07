@@ -1,49 +1,108 @@
 # ISA Simulator
 
-The ISA Simulator is a C++ program that simulates the execution of programs written in a custom instruction set architecture (ISA). This simulator allows users to load programs, execute instructions, and visualize the state of registers and memory during execution. It supports basic operations such as addition, subtraction, loading, and storing values, and provides an intuitive interface for understanding the behavior of programs in the simulated architecture.
+A C++ program that simulates the execution of programs written in a custom instruction set architecture (ISA). This simulator allows users to load programs, execute instructions, and visualize the state of registers and memory during execution. It supports basic operations such as addition, subtraction, loading, and storing values, and provides an intuitive interface for understanding the behavior of programs in the simulated architecture.
 
 ## Features
 
-- Simulates basic operations such as addition, subtraction, loading, and storing values.
-- Provides a clear visualization of register and memory states during program execution.
-- Supports user-defined programs through a simple instruction format.
+- Simulates basic operations such as addition, subtraction, loading, and storing values
+- Provides visualization of register and memory states during execution
+- Supports user-defined programs through a simple instruction format
+
+### Standard Version (`isa_simulator`)
+- Basic command-line interface
+- 256 memory locations
+- Batch execution mode
+- Pre-defined example program
+- Hexadecimal memory display
+
+### Interactive Version (`isa_simulator_interactive`)
+- Enhanced teaching-focused interface
+- Step-by-step execution with visual feedback
+- 32 memory locations (optimized for display)
+- Real-time user input and program control
+- Clear visual state transitions
+- Additional EXIT instruction support
+- Comprehensive error handling
+- Educational progress tracking
+
+## Project Structure
+
+```
+isa-simulator/
+├── src/                    # Source code
+│   ├── isa_simulator.cpp       # Standard implementation (256 memory locations)
+│   └── isa_simulator_interactive.cpp   # Interactive teaching version (32 memory locations)
+├── bin/                    # Compiled executables
+│   ├── isa_simulator.exe      # Standard version executable
+│   └── isa_simulator_interactive.exe  # Interactive teaching version
+├── examples/               # Sample programs and inputs
+│   └── basic_program.txt      # Example instruction set
+├── LICENSE                 # MIT License
+└── README.md              # This file
+```
 
 ## Usage
 
 ### Installation
 
 1. Clone the repository to your local machine:
-
    ```bash
    git clone https://github.com/your-username/isa-simulator.git
-   ```
-2. Navigate to the project directory:
-
-   ```bash
    cd isa-simulator
+   ```
+
+### Building from Source
+
+1. Using G++:
+   ```bash
+   # Standard version (256 memory locations, batch mode)
+   g++ src/isa_simulator.cpp -o bin/isa_simulator
+   
+   # Interactive version (32 memory locations, teaching mode)
+   g++ src/isa_simulator_interactive.cpp -o bin/isa_simulator_interactive
    ```
 
 ### Running the Simulator
 
-1. Compile the source code using a C++ compiler (e.g., g++):
+#### Standard Version
+```bash
+./bin/isa_simulator
+```
+- Runs with a pre-defined example program
+- Displays all steps at once
+- Shows memory in hexadecimal format
+- Suitable for batch processing
 
-   ```bash
-   g++ main.cpp -o isa_simulator
-   ```
-2. Execute the compiled binary:
+#### Interactive Version (Recommended for Learning)
+```bash
+./bin/isa_simulator_interactive
+```
+- Interactive program input
+- Step-by-step execution with visual feedback
+- Enhanced visual display with color-coding
+- Clear state transitions between steps
+- Ideal for learning and teaching
 
-   ```bash
-   ./isa_simulator
-   ```
-3. Follow the on-screen instructions to input program instructions and execute them.
+You can use the example program provided:
+```bash
+./bin/isa_simulator_interactive < examples/basic_program.txt
+```
 
-### Contributing
+### Instruction Format
+Both versions support the following instructions:
+- `ADD dest src1 src2` - Add registers
+- `SUB dest src1 src2` - Subtract registers
+- `LOAD dest addr 0` - Load from memory
+- `STORE src addr 0` - Store to memory
+- `EXIT 0 0 0` - Halt program (interactive version only)
 
-1. Fork the repository.
-2. Create a new branch (`git checkout -b feature/new-feature`).
-3. Make your changes and commit them (`git commit -am 'Add new feature'`).
-4. Push to the branch (`git push origin feature/new-feature`).
-5. Create a new Pull Request.
+## Contributing
+
+1. Fork the repository
+2. Create a new branch (`git checkout -b feature/new-feature`)
+3. Make your changes and commit them (`git commit -am 'Add new feature'`)
+4. Push to the branch (`git push origin feature/new-feature`)
+5. Create a new Pull Request
 
 ## License
 
@@ -51,4 +110,4 @@ This project is licensed under the [MIT License](LICENSE).
 
 ---
 
-**Note:** This simulator is designed for educational purposes and may not cover all aspects of a real-world instruction set architecture. Use it at your own discretion.
+**Note:** This simulator is designed for educational purposes and may not cover all aspects of a real-world instruction set architecture.
